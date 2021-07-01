@@ -14,5 +14,27 @@ import java.io.Serializable;
 public class PasajeNormal extends PasajeInterCantonal 
         implements Serializable{
     
-    
+     private int porcentajeAdicional;
+
+    public PasajeNormal(int porcentajeAdicional, String nombrePasajero, 
+            String cedula, String destino, int kmDistancia, double tarifaBase) {
+        super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
+        this.porcentajeAdicional = porcentajeAdicional;
+    }
+
+    public void setPorcentajeAdicional(int porcentajeDescuento) {
+        this.porcentajeAdicional = porcentajeDescuento;
+    }
+
+    public int getPorcentajeAdicional() {
+        return porcentajeAdicional;
+    }
+
+    @Override
+    public void setValorPasaje() {
+        valorPasaje = (kmDistancia * 0.15)
+                + (tarifaBase - (tarifaBase * (porcentajeAdicional / 100)));
+    }
+
 }
+
