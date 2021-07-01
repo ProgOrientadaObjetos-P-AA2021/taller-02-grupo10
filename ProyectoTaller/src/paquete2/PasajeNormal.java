@@ -11,12 +11,12 @@ import java.io.Serializable;
  *
  * @author reroes
  */
-public class PasajeNormal extends PasajeInterCantonal 
-        implements Serializable{
-    
-     private int porcentajeAdicional;
+public class PasajeNormal extends PasajeInterCantonal
+        implements Serializable {
 
-    public PasajeNormal(int porcentajeAdicional, String nombrePasajero, 
+    private int porcentajeAdicional;
+
+    public PasajeNormal(int porcentajeAdicional, String nombrePasajero,
             String cedula, String destino, int kmDistancia, double tarifaBase) {
         super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
         this.porcentajeAdicional = porcentajeAdicional;
@@ -36,5 +36,13 @@ public class PasajeNormal extends PasajeInterCantonal
                 + (tarifaBase - (tarifaBase * (porcentajeAdicional / 100)));
     }
 
-}
+    @Override
+    public String toString() {
+        String cadena = String.format("-------- Pasaje Normal --------\n"
+                + "%sPorcentaje Adicional: %d\n"
+                + "Costo del Pasaje: %.2f$\n",
+                super.toString(), getPorcentajeAdicional(), getValorPasaje());
+        return cadena;
+    }
 
+}

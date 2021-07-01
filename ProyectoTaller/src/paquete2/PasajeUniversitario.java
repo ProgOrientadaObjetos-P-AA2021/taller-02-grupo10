@@ -12,19 +12,19 @@ import java.io.Serializable;
  * @author reroes
  */
 public class PasajeUniversitario extends PasajeInterCantonal {
-    
+
     protected String nomUniversidad;
 
     public PasajeUniversitario(String nomUniversidad, String nombrePasajero,
             String cedula, String destino, int kmDistancia, double tarifaBase) {
         super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
         this.nomUniversidad = nomUniversidad;
-        
+
     }
 
     public void setNomUniversidad(String nomUniversidad) {
         this.nomUniversidad = nomUniversidad;
-        
+
     }
 
     public String getNomUniversidad() {
@@ -33,6 +33,15 @@ public class PasajeUniversitario extends PasajeInterCantonal {
 
     @Override
     public void setValorPasaje() {
-        valorPasaje =(tarifaBase / 2);
+        valorPasaje = (tarifaBase / 2);
+    }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("-------- Pasaje Universitario --------\n"
+                + "%sNombre de la Universidad: %s\n"
+                + "Costo del Pasaje: %.2f$\n",
+                super.toString(), getNomUniversidad(), getValorPasaje());
+        return cadena;
     }
 }

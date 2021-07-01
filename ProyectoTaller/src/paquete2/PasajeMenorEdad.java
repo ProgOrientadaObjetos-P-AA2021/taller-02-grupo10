@@ -36,4 +36,13 @@ public class PasajeMenorEdad extends PasajeInterCantonal
                 + (tarifaBase - (tarifaBase * (porcentajeDescuento / 100)));
     }
 
+    @Override
+    public String toString() {
+        String cadena = String.format("-------- Pasaje Menor de Edad --------\n"
+                + "%sPorcentaje de Descuento: %d\n"
+                + "Costo del Pasaje: %.2f$\n",
+                super.toString(), getPorcentajeDescuento(), getValorPasaje());
+        return cadena;
+    }
+
 }
