@@ -17,13 +17,14 @@ public class PasajeNormal extends PasajeInterCantonal
     private int porcentajeAdicional;
 
     public PasajeNormal(int porcentajeAdicional, String nombrePasajero,
-            String cedula, String destino, int kmDistancia, double tarifaBase) {
-        super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
+            String cedula, String origen, String destino, int kmDistancia,
+            double tarifaBase) {
+        super(nombrePasajero, cedula, origen, destino, kmDistancia, tarifaBase);
         this.porcentajeAdicional = porcentajeAdicional;
     }
 
-    public void setPorcentajeAdicional(int porcentajeDescuento) {
-        this.porcentajeAdicional = porcentajeDescuento;
+    public void setPorcentajeAdicional(int porcentajeAdicional) {
+        this.porcentajeAdicional = porcentajeAdicional;
     }
 
     public int getPorcentajeAdicional() {
@@ -39,9 +40,10 @@ public class PasajeNormal extends PasajeInterCantonal
     @Override
     public String toString() {
         String cadena = String.format("-------- Pasaje Normal --------\n"
-                + "%sPorcentaje Adicional: %d\n"
+                + "%sPorcentaje Adicional: %d%s\n"
                 + "Costo del Pasaje: %.2f$\n",
-                super.toString(), getPorcentajeAdicional(), getValorPasaje());
+                super.toString(), getPorcentajeAdicional(), "%",
+                getValorPasaje());
         return cadena;
     }
 

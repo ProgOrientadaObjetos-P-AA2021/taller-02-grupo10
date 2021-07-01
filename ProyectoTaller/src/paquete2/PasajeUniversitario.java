@@ -16,10 +16,10 @@ public class PasajeUniversitario extends PasajeInterCantonal {
     protected String nomUniversidad;
 
     public PasajeUniversitario(String nomUniversidad, String nombrePasajero,
-            String cedula, String destino, int kmDistancia, double tarifaBase) {
-        super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
+            String cedula, String origen, String destino, int kmDistancia,
+            double tarifaBase) {
+        super(nombrePasajero, cedula, origen, destino, kmDistancia, tarifaBase);
         this.nomUniversidad = nomUniversidad;
-
     }
 
     public void setNomUniversidad(String nomUniversidad) {

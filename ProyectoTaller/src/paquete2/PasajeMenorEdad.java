@@ -17,8 +17,9 @@ public class PasajeMenorEdad extends PasajeInterCantonal
     private int porcentajeDescuento;
 
     public PasajeMenorEdad(int porcentajeDescuento, String nombrePasajero,
-            String cedula, String destino, int kmDistancia, double tarifaBase) {
-        super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
+            String cedula, String origen, String destino, int kmDistancia,
+            double tarifaBase) {
+        super(nombrePasajero, cedula, origen, destino, kmDistancia, tarifaBase);
         this.porcentajeDescuento = porcentajeDescuento;
     }
 
@@ -39,9 +40,9 @@ public class PasajeMenorEdad extends PasajeInterCantonal
     @Override
     public String toString() {
         String cadena = String.format("-------- Pasaje Menor de Edad --------\n"
-                + "%sPorcentaje de Descuento: %d\n"
+                + "%sPorcentaje de Descuento: %d%s\n"
                 + "Costo del Pasaje: %.2f$\n",
-                super.toString(), getPorcentajeDescuento(), getValorPasaje());
+                super.toString(), getPorcentajeDescuento(),"%", getValorPasaje());
         return cadena;
     }
 

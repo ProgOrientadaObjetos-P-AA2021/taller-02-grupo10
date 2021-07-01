@@ -14,8 +14,8 @@ import java.io.Serializable;
 public class PasajeTerceraEdad extends PasajeInterCantonal {
 
     public PasajeTerceraEdad(String nombrePasajero, String cedula,
-            String destino, int kmDistancia, double tarifaBase) {
-        super(nombrePasajero, cedula, destino, kmDistancia, tarifaBase);
+            String origen, String destino, int kmDistancia, double tarifaBase) {
+        super(nombrePasajero, cedula, origen, destino, kmDistancia, tarifaBase);
     }
 
     @Override

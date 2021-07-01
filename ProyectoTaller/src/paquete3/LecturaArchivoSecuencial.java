@@ -14,7 +14,6 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import paquete2.PasajeInterCantonal;
 
-
 /**
  *
  * @author reroes
@@ -36,10 +35,10 @@ public class LecturaArchivoSecuencial {
             } // fin de try
             catch (IOException ioException) {
                 System.err.println("Error al abrir el archivo.");
-               
+
             } // fin de catch
         }
-    } 
+    }
 
     public void establecerNombreArchivo(String n) {
         nombreArchivo = n;
@@ -52,9 +51,9 @@ public class LecturaArchivoSecuencial {
 
         while (true) {
             try {
-                
+
                 Object registro = entrada.readObject();
-                pasajes.add((PasajeInterCantonal)registro);
+                pasajes.add((PasajeInterCantonal) registro);
             } catch (EOFException endOfFileException) {
                 return; // se llegó al fin del archivo
 
@@ -80,12 +79,12 @@ public class LecturaArchivoSecuencial {
 
     @Override
     public String toString() {
-        
+
         String cadena = "Lista de Pasajes\n";
         for (int i = 0; i < obtenerListaPasajes().size(); i++) {
             PasajeInterCantonal p = obtenerListaPasajes().get(i);
-            cadena = String.format("%s%d) (%s) - %s\n", cadena, 
-                    i+1, p.getClass().getSimpleName(), p);
+            cadena = String.format("%s%d) %s\n", cadena,
+                    i + 1, p);
         }
 
         return cadena;
